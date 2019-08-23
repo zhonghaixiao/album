@@ -1,6 +1,5 @@
 package com.example.album.dao;
 
-import org.n3r.eql.diamond.Dql;
 import org.n3r.eql.eqler.annotations.EqlerConfig;
 import org.n3r.eql.eqler.annotations.Sql;
 import org.springframework.stereotype.Repository;

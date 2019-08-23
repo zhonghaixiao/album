@@ -1,0 +1,490 @@
+2019-08-21 19:10:24.865 [main] [ERROR]  org.n3r.eql.Eql:195 - exec sql select * from activity exception
+java.sql.SQLException: The server time zone value '�й���׼ʱ��' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:76)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:827)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:447)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.n3r.eql.trans.SimpleDataSource.popConnection(SimpleDataSource.java:584)
+	at org.n3r.eql.trans.SimpleDataSource.getConnection(SimpleDataSource.java:202)
+	at org.n3r.eql.trans.EqlSimpleConnection.getConnection(EqlSimpleConnection.java:16)
+	at org.n3r.eql.trans.EqlJdbcTran.getConn(EqlJdbcTran.java:49)
+	at org.n3r.eql.Eql.createConn(Eql.java:118)
+	at org.n3r.eql.Eql.execute(Eql.java:182)
+	at com.example.album.dao.ActVoteDaoImpl.getActivities(Unknown Source)
+	at com.example.album.ActVoteDaoTest.f(ActVoteDaoTest.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The server time zone value '�й���׼ʱ��' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:85)
+	at com.mysql.cj.util.TimeUtil.getCanonicalTimezone(TimeUtil.java:132)
+	at com.mysql.cj.protocol.a.NativeProtocol.configureTimezone(NativeProtocol.java:2139)
+	at com.mysql.cj.protocol.a.NativeProtocol.initServerSession(NativeProtocol.java:2163)
+	at com.mysql.cj.jdbc.ConnectionImpl.initializePropsFromServer(ConnectionImpl.java:1301)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:958)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:817)
+	... 43 common frames omitted
+2019-08-21 19:11:58.440 [main] [ERROR]  org.n3r.eql.Eql:195 - exec sql select * from activity exception
+java.sql.SQLException: The server time zone value '�й���׼ʱ��' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:76)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:827)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:447)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.n3r.eql.trans.SimpleDataSource.popConnection(SimpleDataSource.java:584)
+	at org.n3r.eql.trans.SimpleDataSource.getConnection(SimpleDataSource.java:202)
+	at org.n3r.eql.trans.EqlSimpleConnection.getConnection(EqlSimpleConnection.java:16)
+	at org.n3r.eql.trans.EqlJdbcTran.getConn(EqlJdbcTran.java:49)
+	at org.n3r.eql.Eql.createConn(Eql.java:118)
+	at org.n3r.eql.Eql.execute(Eql.java:182)
+	at com.example.album.dao.ActVoteDaoImpl.getActivities(Unknown Source)
+	at com.example.album.ActVoteDaoTest.f(ActVoteDaoTest.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The server time zone value '�й���׼ʱ��' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:85)
+	at com.mysql.cj.util.TimeUtil.getCanonicalTimezone(TimeUtil.java:132)
+	at com.mysql.cj.protocol.a.NativeProtocol.configureTimezone(NativeProtocol.java:2139)
+	at com.mysql.cj.protocol.a.NativeProtocol.initServerSession(NativeProtocol.java:2163)
+	at com.mysql.cj.jdbc.ConnectionImpl.initializePropsFromServer(ConnectionImpl.java:1301)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:958)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:817)
+	... 43 common frames omitted
+2019-08-21 19:12:20.861 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 1566311673.
+2019-08-21 19:12:20.888 [main] [DEBUG]  e.c.e.a.d.ActVoteDaoImpl.eql.getActivities.prepare:116 - select * from activity
+2019-08-21 19:12:20.915 [main] [DEBUG]  e.c.e.a.d.ActVoteDaoImpl.eql.getActivities.result:48 - total 10 rows: [{start_time=2019-04-01 23:55:56.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test3, end_time=2019-04-01 23:56:16.0, id=11738f9a-443d-41cc-a88e-ac520347f70e, state=正在进行}, {start_time=2019-04-01 23:56:56.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test9, end_time=2019-04-01 23:57:16.0, id=4d63ce0e-4242-45d5-80b1-e81a39cfc26c, state=正在进行}, {start_time=2019-04-01 23:56:16.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test5, end_time=2019-04-01 23:56:36.0, id=52d475eb-330d-4c21-996b-c75ef0b04f3c, state=正在进行}, {start_time=2019-04-01 23:56:06.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test4, end_time=2019-04-01 23:56:26.0, id=64dda4f4-5930-4e4e-8818-6dd5267bc1db, state=正在进行}, {start_time=2019-04-01 23:55:26.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test0, end_time=2019-04-01 23:55:46.0, id=83ed9681-e3c1-4bd0-97ab-0380ba8ad106, state=正在进行}, {start_time=2019-04-01 23:56:26.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test6, end_time=2019-04-01 23:56:46.0, id=882182ed-d90e-4067-bfa8-24adfa02530e, state=正在进行}, {start_time=2019-04-01 23:56:46.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test8, end_time=2019-04-01 23:57:06.0, id=9c727f83-62de-4dac-95d2-4d9dc199f662, state=正在进行}, {start_time=2019-04-01 23:56:36.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test7, end_time=2019-04-01 23:56:56.0, id=a334f84e-4a98-45d7-8b8b-2828fdf75799, state=正在进行}, {start_time=2019-04-01 23:55:46.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test2, end_time=2019-04-01 23:56:06.0, id=c98f06bb-dba0-45ab-848b-5824d3bd2c02, state=正在进行}, {start_time=2019-04-01 23:55:36.0, update_time=2019-04-02 07:55:26.0, create_time=2019-04-02 07:55:26.0, name=test1, end_time=2019-04-01 23:55:56.0, id=de2488cc-a099-45c4-a039-59d07f4c5cc5, state=正在进行}]
+2019-08-21 19:12:20.917 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 1566311673 to pool.
+2019-08-22 16:52:43.568 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 932118570.
+2019-08-22 16:52:43.573 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.prepare:116 - insert into sys_user(user_id,user_name,phone,email,password,salt) values(?,?,?,?,?,?)
+2019-08-22 16:52:43.617 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.params:103 - [1164460366047088640, zhong1, 18260631671, null, 44a1e9f8faebf38471115cf6d6b399d2510a764d0e58f11f263d693ba9c207ee, null]
+2019-08-22 16:52:43.618 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.eval:110 - insert into sys_user(user_id,user_name,phone,email,password,salt) values('1164460366047088640','zhong1','18260631671',NULL,'44a1e9f8faebf38471115cf6d6b399d2510a764d0e58f11f263d693ba9c207ee',NULL)
+2019-08-22 16:52:43.670 [main] [ERROR]  org.n3r.eql.Eql:195 - exec sql insert into sys_user(user_id,user_name,phone,email,password,salt) values(?,?,?,?,?,?) exception
+java.sql.SQLIntegrityConstraintViolationException: Column 'salt' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1340)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at org.n3r.eql.Eql.execDmlNoBatch(Eql.java:476)
+	at org.n3r.eql.Eql.execDml(Eql.java:406)
+	at org.n3r.eql.Eql.pageExecute(Eql.java:362)
+	at org.n3r.eql.Eql.runEql(Eql.java:342)
+	at org.n3r.eql.Eql.execute(Eql.java:184)
+	at com.example.album.dao.UserDaoImpl.createUser(Unknown Source)
+	at com.example.album.service.UserServiceTest.createUser(UserServiceTest.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+2019-08-22 16:52:43.677 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 932118570 to pool.
+2019-08-22 16:53:17.775 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 365211514.
+2019-08-22 16:53:17.779 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.prepare:116 - insert into sys_user(user_id,user_name,phone,email,password,salt) values(?,?,?,?,?,?)
+2019-08-22 16:53:17.813 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.params:103 - [1164460514286374912, zhong1, 18260631671, null, 1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, 4694e56b4d8db9896eb50b9f8b42d4a1]
+2019-08-22 16:53:17.814 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.eval:110 - insert into sys_user(user_id,user_name,phone,email,password,salt) values('1164460514286374912','zhong1','18260631671',NULL,'1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9','4694e56b4d8db9896eb50b9f8b42d4a1')
+2019-08-22 16:53:17.856 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.result:22 - 1
+2019-08-22 16:53:17.869 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 365211514 to pool.
+2019-08-22 16:53:17.883 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:575 - Checked out connection 365211514 from pool.
+2019-08-22 16:53:17.884 [main] [DEBUG]  e.c.e.a.dao.UserDaoImpl.eql.getUserById.prepare:116 - select * from sys_user where userId = ?
+2019-08-22 16:53:17.885 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUserById.params:103 - [1164460514286374912]
+2019-08-22 16:53:17.885 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUserById.eval:110 - select * from sys_user where userId = '1164460514286374912'
+2019-08-22 16:53:17.910 [main] [ERROR]  org.n3r.eql.Eql:195 - exec sql select * from sys_user where userId = ? exception
+java.sql.SQLSyntaxErrorException: Unknown column 'userId' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1003)
+	at org.n3r.eql.Eql.execDmlNoBatch(Eql.java:464)
+	at org.n3r.eql.Eql.execDml(Eql.java:406)
+	at org.n3r.eql.Eql.pageExecute(Eql.java:362)
+	at org.n3r.eql.Eql.runEql(Eql.java:342)
+	at org.n3r.eql.Eql.execute(Eql.java:184)
+	at com.example.album.dao.UserDaoImpl.getUserById(Unknown Source)
+	at com.example.album.service.UserServiceTest.createUser(UserServiceTest.java:45)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+2019-08-22 16:53:17.912 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 365211514 to pool.
+2019-08-22 16:57:21.604 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 365211514.
+2019-08-22 16:57:21.607 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.prepare:116 - insert into sys_user(user_id,user_name,phone,email,password,salt) values(?,?,?,?,?,?)
+2019-08-22 16:57:21.643 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.params:103 - [1164461535112859648, zhong1, 18260631671, null, 7d5293a3cca66df8c7616c67731411fa7e636478e14e2214f2f836dcb5b5e568, 76f43266f299f2c1485d8e8d1b9701dc]
+2019-08-22 16:57:21.644 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.eval:110 - insert into sys_user(user_id,user_name,phone,email,password,salt) values('1164461535112859648','zhong1','18260631671',NULL,'7d5293a3cca66df8c7616c67731411fa7e636478e14e2214f2f836dcb5b5e568','76f43266f299f2c1485d8e8d1b9701dc')
+2019-08-22 16:57:21.652 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.result:22 - 1
+2019-08-22 16:57:21.659 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 365211514 to pool.
+2019-08-22 16:57:21.668 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:575 - Checked out connection 365211514 from pool.
+2019-08-22 16:57:21.670 [main] [DEBUG]  e.c.e.a.dao.UserDaoImpl.eql.getUserById.prepare:116 - select * from sys_user where user_id = ?
+2019-08-22 16:57:21.671 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUserById.params:103 - [1164461535112859648]
+2019-08-22 16:57:21.672 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUserById.eval:110 - select * from sys_user where user_id = '1164461535112859648'
+2019-08-22 16:57:21.859 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUserById.result:22 - SysUser(userId=1164461535112859648, userName=zhong1, phone=18260631671, email=null, password=7d5293a3cca66df8c7616c67731411fa7e636478e14e2214f2f836dcb5b5e568, salt=76f43266f299f2c1485d8e8d1b9701dc, locked=0, createTime=2019-08-23T00:57:21.000+08:00, updateTime=2019-08-23T00:57:21.000+08:00)
+2019-08-22 16:57:21.861 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 365211514 to pool.
+2019-08-22 17:05:47.134 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 365211514.
+2019-08-22 17:05:47.138 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.prepare:116 - insert into sys_user(user_id,user_name,phone,email,password,salt) values(?,?,?,?,?,?)
+2019-08-22 17:05:47.190 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.params:103 - [1164463650795294720, zhong1, 18260631671, null, ae333ac3c62d21b0c850a393c2aebfa8256a5fd1e77f520dd621a4ee2753c88d, 3c6b1fc751170bfb9604a5d4d79f60e0]
+2019-08-22 17:05:47.192 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.eval:110 - insert into sys_user(user_id,user_name,phone,email,password,salt) values('1164463650795294720','zhong1','18260631671',NULL,'ae333ac3c62d21b0c850a393c2aebfa8256a5fd1e77f520dd621a4ee2753c88d','3c6b1fc751170bfb9604a5d4d79f60e0')
+2019-08-22 17:05:47.227 [main] [ERROR]  org.n3r.eql.Eql:195 - exec sql insert into sys_user(user_id,user_name,phone,email,password,salt) values(?,?,?,?,?,?) exception
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'zhong1' for key 'unique_name'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1340)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at org.n3r.eql.Eql.execDmlNoBatch(Eql.java:476)
+	at org.n3r.eql.Eql.execDml(Eql.java:406)
+	at org.n3r.eql.Eql.pageExecute(Eql.java:362)
+	at org.n3r.eql.Eql.runEql(Eql.java:342)
+	at org.n3r.eql.Eql.execute(Eql.java:184)
+	at com.example.album.dao.UserDaoImpl.createUser(Unknown Source)
+	at com.example.album.service.UserServiceTest.createUser(UserServiceTest.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+2019-08-22 17:05:47.232 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 365211514 to pool.
+2019-08-22 17:11:34.160 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 1185575212.
+2019-08-22 17:11:34.164 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.prepare:116 - insert into sys_user(user_id,user_name,phone,email,password,salt) values(?,?,?,?,?,?)
+2019-08-22 17:11:34.200 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.params:103 - [1164465112547987456, zhong1, 18260631671, null, accfb0a88339271b2f7ebfd8454b04db4dd6f74717f901a1b101b6850971c656, f54343c1e03c846ec5443e8b929ccc63]
+2019-08-22 17:11:34.201 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.createUser.eval:110 - insert into sys_user(user_id,user_name,phone,email,password,salt) values('1164465112547987456','zhong1','18260631671',NULL,'accfb0a88339271b2f7ebfd8454b04db4dd6f74717f901a1b101b6850971c656','f54343c1e03c846ec5443e8b929ccc63')
+2019-08-22 17:11:34.228 [main] [ERROR]  org.n3r.eql.Eql:195 - exec sql insert into sys_user(user_id,user_name,phone,email,password,salt) values(?,?,?,?,?,?) exception
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'zhong1' for key 'unique_name'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1340)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at org.n3r.eql.Eql.execDmlNoBatch(Eql.java:476)
+	at org.n3r.eql.Eql.execDml(Eql.java:406)
+	at org.n3r.eql.Eql.pageExecute(Eql.java:362)
+	at org.n3r.eql.Eql.runEql(Eql.java:342)
+	at org.n3r.eql.Eql.execute(Eql.java:184)
+	at com.example.album.dao.UserDaoImpl.createUser(Unknown Source)
+	at com.example.album.service.UserServiceTest.createUser(UserServiceTest.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+2019-08-22 17:11:34.234 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 1185575212 to pool.
+2019-08-22 17:23:46.144 [main] [ERROR]  org.n3r.eql.Eql:195 - exec sql select * from sys_user where user_name=? or phone=? or email=? exception
+org.n3r.eql.ex.EqlExecuteException: [getUser] lack parameters at runtime
+	at org.n3r.eql.param.EqlParamsBinder.getParamByIndex(EqlParamsBinder.java:204)
+	at org.n3r.eql.param.EqlParamsBinder.prepareBindParams(EqlParamsBinder.java:51)
+	at org.n3r.eql.Eql.execute(Eql.java:181)
+	at com.example.album.dao.UserDaoImpl.getUser(Unknown Source)
+	at com.example.album.config.TestRealm.doGetAuthenticationInfo(TestRealm.java:38)
+	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267)
+	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198)
+	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106)
+	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:275)
+	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260)
+	at com.example.album.service.UserServiceTest.simpleLogin(UserServiceTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+2019-08-22 17:25:31.440 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 281487983.
+2019-08-22 17:25:31.443 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:25:31.475 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:25:31.475 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:25:31.621 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:25:31.622 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 281487983 to pool.
+2019-08-22 17:27:05.242 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 1327714567.
+2019-08-22 17:27:05.248 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:27:05.302 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:27:05.303 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:27:05.514 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:27:05.516 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 1327714567 to pool.
+2019-08-22 17:27:30.874 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 353355687.
+2019-08-22 17:27:30.879 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:27:30.920 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:27:30.920 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:27:31.129 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:27:31.132 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 353355687 to pool.
+2019-08-22 17:29:30.690 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 931003277.
+2019-08-22 17:29:30.694 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:29:30.741 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:29:30.742 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:29:30.919 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:29:30.921 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 931003277 to pool.
+2019-08-22 17:30:35.381 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 2043313130.
+2019-08-22 17:30:35.400 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:30:35.514 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:30:35.515 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:30:35.996 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:30:36.004 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 2043313130 to pool.
+2019-08-22 17:31:39.659 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 1191544932.
+2019-08-22 17:31:39.676 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:31:39.792 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:31:39.794 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:31:40.292 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:31:40.299 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 1191544932 to pool.
+2019-08-22 17:32:43.749 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 516459169.
+2019-08-22 17:32:43.766 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:32:43.881 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:32:43.883 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:32:44.357 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:32:44.364 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 516459169 to pool.
+2019-08-22 17:33:13.803 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 721704146.
+2019-08-22 17:33:13.823 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:33:13.945 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:33:13.947 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:33:14.440 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:33:14.447 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 721704146 to pool.
+2019-08-22 17:34:22.749 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 2096690266.
+2019-08-22 17:34:22.766 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:34:22.881 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:34:22.882 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:34:23.349 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:34:23.356 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 2096690266 to pool.
+2019-08-22 17:38:50.010 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 2109061264.
+2019-08-22 17:38:50.027 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:38:50.145 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:38:50.147 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:38:50.669 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:38:50.676 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 2109061264 to pool.
+2019-08-22 17:41:28.801 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 1409215177.
+2019-08-22 17:41:28.817 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:41:28.936 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:41:28.938 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:41:29.472 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:41:29.479 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 1409215177 to pool.
+2019-08-22 17:46:14.411 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 1355533479.
+2019-08-22 17:46:14.428 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:46:14.544 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:46:14.546 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:46:15.009 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:46:15.016 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 1355533479 to pool.
+2019-08-22 17:46:50.086 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 2095803461.
+2019-08-22 17:46:50.103 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:47:37.058 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 468582533.
+2019-08-22 17:47:37.074 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:47:37.191 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:47:37.193 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:47:37.668 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:47:37.676 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 468582533 to pool.
+2019-08-22 17:48:30.497 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:591 - Created connection 1746468168.
+2019-08-22 17:48:30.514 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.prepare:116 - select * from sys_user where user_name=? or phone=? or email=?
+2019-08-22 17:48:30.632 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.params:103 - [zhong1, zhong1, zhong1]
+2019-08-22 17:48:30.634 [main] [DEBUG]  e.c.example.album.dao.UserDaoImpl.eql.getUser.eval:110 - select * from sys_user where user_name='zhong1' or phone='zhong1' or email='zhong1'
+2019-08-22 17:48:31.115 [main] [DEBUG]  e.c.e.album.dao.UserDaoImpl.eql.getUser.result:22 - SysUser(userId=1164460514286374912, userName=zhong1, phone=18260631671, email=null, password=1f7c7faa0be82af57f3ba308843072ca6e57f66105a0b06017528044ff3a7ce9, salt=4694e56b4d8db9896eb50b9f8b42d4a1, locked=0, createTime=2019-08-23T00:53:17.000+08:00, updateTime=2019-08-23T00:53:17.000+08:00)
+2019-08-22 17:48:31.122 [main] [DEBUG]  org.n3r.eql.trans.SimpleDataSource:539 - Returned connection 1746468168 to pool.
