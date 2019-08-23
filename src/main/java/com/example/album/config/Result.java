@@ -1,4 +1,4 @@
-package cn.raiyee.ec.admin.base.domain;
+package com.example.album.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

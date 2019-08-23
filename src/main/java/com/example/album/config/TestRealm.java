@@ -2,6 +2,7 @@ package com.example.album.config;
 
 import com.example.album.dao.UserDao;
 import com.example.album.domain.SysUser;
+import com.example.album.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
@@ -17,6 +18,9 @@ public class TestRealm extends AuthorizingRealm {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    UserService userService;
+
     @Override
     public boolean supports(AuthenticationToken token) {
         if (token instanceof SimpleToken) {
@@ -27,7 +31,10 @@ public class TestRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
+        String principal = (String) principalCollection.getPrimaryPrincipal();
+        log.info("principal = {}", principal);
+        SysUser user = userService.getUserByUserName(principal);
+        return user;
     }
 
     @Override
@@ -37,6 +44,12 @@ public class TestRealm extends AuthorizingRealm {
             SimpleToken realToken = (SimpleToken) token;
             String principal = realToken.getPrincipal();
             SysUser user = userDao.getUser(principal);
+            if (user == null) {
+                throw new UnknownAccountException();
+            }
+            if (user.getLocked().equals("1")){
+                throw new LockedAccountException();
+            }
             return user;
         }
         return null;

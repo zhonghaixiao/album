@@ -7,6 +7,7 @@ import org.n3r.eql.trans.spring.annotation.EnableEqlTransaction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -14,6 +15,7 @@ import redis.clients.jedis.JedisPoolConfig;
 @EnableEqlTransaction
 @EqlerScan
 @SpringBootApplication
+@Configuration
 public class AlbumApplication {
 
 	public static void main(String[] args) {
@@ -34,11 +36,6 @@ public class AlbumApplication {
 		jedisPoolConfig.setMinIdle(8);
 
 		return new JedisPool(jedisPoolConfig, host, port, timeout, null, database);
-	}
-
-	@Bean
-	public Jedis jedis() {
-		return JedisProxy.createJedisProxy(createJedisPool());
 	}
 
 

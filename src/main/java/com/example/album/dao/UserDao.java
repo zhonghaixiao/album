@@ -1,5 +1,7 @@
 package com.example.album.dao;
 
+import com.example.album.domain.Perm;
+import com.example.album.domain.Role;
 import com.example.album.domain.SysUser;
 import org.n3r.eql.eqler.annotations.EqlerConfig;
 import org.n3r.eql.eqler.annotations.Sql;
@@ -38,4 +40,33 @@ public interface UserDao {
 
     @Sql("delete from sys_user where user_id = ##")
     int deleteUser(String userId);
+
+    @Sql("select \n" +
+            "\tur.role_id,\n" +
+            "\tr.role_name,\n" +
+            "\tr.role_desc,\n" +
+            "\tr.available\n" +
+            "FROM\n" +
+            "\tuser_role ur left join role r on ur.role_id=r.role_id\n" +
+            "where\n" +
+            "\tur.user_id=##")
+    List<Role> getAllRoles(String userId);
+
+    @Sql("select\n" +
+            "\tp.perm_id,\n" +
+            "\tp.perm_name,\n" +
+            "\tp.perm_desc\n" +
+            "FROM\n" +
+            "\tuser_role ur left join role_perm rp on ur.role_id=rp.role_id\n" +
+            "\tinner join perm p on rp.perm_id=p.perm_id\n" +
+            "WHERE\n" +
+            "\tur.user_id=##")
+    List<Perm> getAllPerms(String userId);
+
+    @Sql("insert into user_role(user_id,role_id)\n" +
+            "values \n" +
+            "-- for item=item index=index collection=_2 open='' separator=, close=''\n" +
+            "(#_1#, #item#)\n" +
+            "-- end")
+    int insertRole(String userId, List<String> collect);
 }

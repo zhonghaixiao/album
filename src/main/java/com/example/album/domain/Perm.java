@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Permission {
-    private String perId;
-    private String perName;
-    private String perDesc;
+public class Perm {
+    private String permId;
+    private String permName;
+    private String permDesc;
     private String available;
 }

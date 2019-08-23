@@ -2,9 +2,12 @@ package com.example.album.config;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.LinkedHashMap;
 
 @Configuration
 public class ShiroConfig {
@@ -32,6 +35,21 @@ public class ShiroConfig {
         securityManager.setRealm(realm());
         SecurityUtils.setSecurityManager(securityManager);
         return securityManager;
+    }
+
+    @Bean(name = "shiroFilter")
+    public ShiroFilterFactoryBean shiroFilter(DefaultWebSecurityManager manager){
+        ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
+        bean.setSecurityManager(manager);
+        bean.setLoginUrl("/login");
+        bean.setSuccessUrl("/success");
+        bean.setUnauthorizedUrl("/unauthorize");
+        //访问权限
+        LinkedHashMap<String,String> filterChainDefinitionMap = new LinkedHashMap<>();
+        filterChainDefinitionMap.put("/login", "anon");
+        filterChainDefinitionMap.put("/user/*", "authc");
+        bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+        return bean;
     }
 
 }
