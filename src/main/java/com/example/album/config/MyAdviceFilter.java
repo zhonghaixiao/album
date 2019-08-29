@@ -19,16 +19,16 @@ public class MyAdviceFilter extends AdviceFilter {
     @Override
     protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
         Subject s = SecurityUtils.getSubject();
-        Session session;
-        try{
-            session = s.getSession();
-            System.out.println("当前session = " + session.getId());
-        }catch (UnknownSessionException e){
-            HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-            httpServletResponse.addHeader("WWW-Authenticate", "Basic realm='test'");
-            httpServletResponse.sendError(401, "请登录");
-            return true;
-        }
+//        Session session;
+//        try{
+//            session = s.getSession();
+//            System.out.println("当前session = " + session.getId());
+//        }catch (UnknownSessionException e){
+//            HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+//            httpServletResponse.addHeader("WWW-Authenticate", "Basic realm='test'");
+//            httpServletResponse.sendError(401, "请登录");
+//            return false;
+//        }
 
 
         if (s.isAuthenticated()){
@@ -43,10 +43,10 @@ public class MyAdviceFilter extends AdviceFilter {
         }
         String basicToken = httpServletRequest.getHeader("Authorization");
         if (StringUtils.isEmpty(basicToken)){
-            System.out.println("token 不能为空");
-            HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-            httpServletResponse.addHeader("WWW-Authenticate", "Basic realm='test'");
-            httpServletResponse.sendError(401, "请登录");
+//            System.out.println("token 不能为空");
+//            HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+//            httpServletResponse.addHeader("WWW-Authenticate", "Basic realm='test'");
+//            httpServletResponse.sendError(401, "请登录");
             return true;
         }
         String[] strs = basicToken.split(" ");
