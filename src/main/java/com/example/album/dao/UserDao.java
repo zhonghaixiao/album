@@ -3,6 +3,7 @@ package com.example.album.dao;
 import com.example.album.domain.Perm;
 import com.example.album.domain.Role;
 import com.example.album.domain.SysUser;
+import com.example.album.domain.SysUser2;
 import org.n3r.eql.eqler.annotations.EqlerConfig;
 import org.n3r.eql.eqler.annotations.Sql;
 import org.springframework.stereotype.Repository;
@@ -21,6 +22,9 @@ public interface UserDao {
 
     @Sql("select * from sys_user where user_name=#_1# or phone=#_1# or email=#_1#")
     SysUser getUser(String principal);
+
+    @Sql("select * from sys_user where user_name=#_1# or phone=#_1# or email=#_1#")
+    SysUser2 getUser2(String principal);
 
     @Sql("insert into sys_user(user_id,user_name,phone,email,password,salt)\n" +
             "values(#userId#,#userName#,#phone#,#email#,#password#,#salt#)")

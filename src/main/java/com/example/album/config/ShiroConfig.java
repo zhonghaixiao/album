@@ -136,19 +136,21 @@ public class ShiroConfig {
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         bean.setSecurityManager(manager);
         Map<String, Filter> filterMap = new HashMap<>();
-        filterMap.put("myFilter", new MyOncePerRequestFilter());
-        filterMap.put("myAdviceFilter", new MyAdviceFilter());
-        filterMap.put("myAuthc", new MyAuthc());
-        MyPathFilter myPathFilter = new MyPathFilter();
-//        myPathFilter.processPathConfig("/user/**", "roles=role1");
-        filterMap.put("myPathFilter",myPathFilter);
+//        filterMap.put("myFilter", new MyOncePerRequestFilter());
+//        filterMap.put("myAdviceFilter", new MyAdviceFilter());
+//        filterMap.put("myAuthc", new MyAuthc());
+//        MyPathFilter myPathFilter = new MyPathFilter();
+////        myPathFilter.processPathConfig("/user/**", "roles=role1");
+//        filterMap.put("myPathFilter",myPathFilter);
+
         bean.setFilters(filterMap);
 
         //访问权限
         LinkedHashMap<String,String> filterChainDefinitionMap = new LinkedHashMap<>();
 //        filterChainDefinitionMap.put("/user/**", "myFilter");
-        filterChainDefinitionMap.put("/user/**", "myAdviceFilter,myAuthc,myPathFilter[role1,role2]");
-        filterChainDefinitionMap.put("/test/**", "myFilter");
+//        filterChainDefinitionMap.put("/user/**", "myAdviceFilter,myAuthc,myPathFilter[role1,role2]");
+//        filterChainDefinitionMap.put("/**", "myFilter");
+//        filterChainDefinitionMap.put("/test/**", "myFilter");
 //        filterChainDefinitionMap.put("/favicon.ico", "anon");
 //        filterChainDefinitionMap.put("/user/*", "authc");
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
