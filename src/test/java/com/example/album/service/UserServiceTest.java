@@ -18,6 +18,7 @@ import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.*;
 import org.apache.shiro.crypto.hash.format.HashFormat;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ByteSource;
 import org.apache.shiro.util.SimpleByteSource;
@@ -113,10 +114,10 @@ public class UserServiceTest {
         }catch (AuthenticationException e){
             log.error("{}", e);
         }
-        assertEquals(true, subject.isAuthenticated());
-        assertEquals(true, subject.hasRole("role1"));
-        assertEquals(true, subject.hasRole("role2"));
-        assertEquals(true, subject.isPermitted("user:*"));
+//        assertEquals(true, subject.isAuthenticated());
+//        assertEquals(true, subject.hasRole("role1"));
+//        assertEquals(true, subject.hasRole("role2"));
+//        assertEquals(true, subject.isPermitted("user:*"));
         subject.execute(new Callable() {
             @Override
             public String call() throws Exception {
@@ -129,6 +130,10 @@ public class UserServiceTest {
 
             }
         })).start();
+
+        Session session = subject.getSession(true);
+        System.out.println(session);
+
         subject.logout();
     }
 
