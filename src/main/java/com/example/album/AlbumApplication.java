@@ -1,5 +1,7 @@
 package com.example.album;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.bingoohuang.utils.redis.JedisProxy;
 import lombok.val;
 import org.n3r.eql.eqler.spring.EqlerScan;
@@ -38,5 +40,9 @@ public class AlbumApplication {
 		return new JedisPool(jedisPoolConfig, host, port, timeout, null, database);
 	}
 
+	@Bean
+	public ObjectMapper objectMapper() {
+		return new ObjectMapper().disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+	}
 
 }

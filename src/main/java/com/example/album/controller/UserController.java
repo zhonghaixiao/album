@@ -21,4 +21,9 @@ public class UserController {
         return Result.ok(userService.getUser(userId));
     }
 
+    @GetMapping("test")
+    public Result getTest(){
+        return Result.ok("hello");
+    }
+
 }

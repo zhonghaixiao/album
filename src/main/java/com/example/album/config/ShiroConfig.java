@@ -3,6 +3,7 @@ package com.example.album.config;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,6 +38,11 @@ public class ShiroConfig {
         return securityManager;
     }
 
+    @Bean
+    public BasicHttpAuthenticationFilter basicHttpAuthenticationFilter(){
+        return new BasicHttpAuthenticationFilter();
+    }
+
     @Bean(name = "shiroFilter")
     public ShiroFilterFactoryBean shiroFilter(DefaultWebSecurityManager manager){
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
@@ -46,9 +52,10 @@ public class ShiroConfig {
         bean.setUnauthorizedUrl("/unauthorize");
         //访问权限
         LinkedHashMap<String,String> filterChainDefinitionMap = new LinkedHashMap<>();
-        filterChainDefinitionMap.put("/login", "anon");
-        filterChainDefinitionMap.put("/user/*", "authc");
+        filterChainDefinitionMap.put("/login", "authcBasic");
+        filterChainDefinitionMap.put("/user/*", "authcBasic, authc");
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+
         return bean;
     }
 
