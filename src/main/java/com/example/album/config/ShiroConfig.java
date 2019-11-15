@@ -26,6 +26,7 @@ import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import redis.clients.jedis.JedisPool;
 
 import javax.servlet.Filter;
@@ -133,10 +134,11 @@ public class ShiroConfig {
 
     @Bean(name = "shiroFilter")
     public ShiroFilterFactoryBean shiroFilter(DefaultWebSecurityManager manager){
+        DelegatingFilterProxy
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         bean.setSecurityManager(manager);
         Map<String, Filter> filterMap = new HashMap<>();
-//        filterMap.put("myFilter", new MyOncePerRequestFilter());
+        filterMap.put("myFilter", new MyOncePerRequestFilter());
 //        filterMap.put("myAdviceFilter", new MyAdviceFilter());
 //        filterMap.put("myAuthc", new MyAuthc());
 //        MyPathFilter myPathFilter = new MyPathFilter();
@@ -147,7 +149,7 @@ public class ShiroConfig {
 
         //访问权限
         LinkedHashMap<String,String> filterChainDefinitionMap = new LinkedHashMap<>();
-//        filterChainDefinitionMap.put("/user/**", "myFilter");
+        filterChainDefinitionMap.put("/user/**", "myFilter");
 //        filterChainDefinitionMap.put("/user/**", "myAdviceFilter,myAuthc,myPathFilter[role1,role2]");
 //        filterChainDefinitionMap.put("/**", "myFilter");
 //        filterChainDefinitionMap.put("/test/**", "myFilter");
